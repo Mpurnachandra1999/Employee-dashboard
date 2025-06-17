@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+        table {
+            margin: auto;
+            width: 50%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Welcome, <span th:text="${employee.ename}"></span>!</h2>
+
+<!-- Error message if employee not found -->
+<p th:if="${error}" style="color: red;" th:text="${error}"></p>
+
+<!-- Ensure employee is available before displaying the table -->
+<table th:if="${employee}">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Hire Date</th>
+        <th>Department</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${employee.empid}"></td>
+        <td th:text="${employee.ename}"></td>
+        <td th:text="${employee.sal}"></td>
+        <td th:text="${employee.hiredate}"></td>
+        <td th:text="${employee.deptname}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
